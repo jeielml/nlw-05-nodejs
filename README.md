@@ -97,3 +97,13 @@ yarn typeorm migration:create -n CreateUsers
 ```ssh
 yarn typeorm migration:run
 ```
+
+## Criação da tabela de mensagens
+
+```ssh
+yarn typeorm migration:create -n CreateMessages
+```
+
+```ssh
+yarn typeorm migration:run
+```
