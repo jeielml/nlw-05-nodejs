@@ -64,4 +64,13 @@ yarn add uuid
 yarn add @types/uuid -D
 ```
 
-## Criando Repositório
+## Criando Repositório e Fazendo a requisição
+
+```ssh
+curl --location --request POST 'localhost:3333/settings' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "chat":true,
+    "username":"admin"
+}'
+```
