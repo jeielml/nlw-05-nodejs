@@ -21,3 +21,34 @@ NLW 05 - NodeJS
 ```ssh
 yarn add typeorm reflect-metadata sqlite3
 ```
+
+#### Criando migrations
+
+```ssh
+yarn typeorm migration:create -n CreateSettings
+```
+#### Rodando migrations
+
+```ssh
+yarn typeorm migration:run
+```
+
+#### Revertendo migrations
+
+```ssh
+yarn typeorm migration:revert
+```
+
+
+### COnfigurando db connector
+
+* sqlite
+
+Se usa Ubuntu, primeiramente instalar o sqlite `sudo apt install sqlite`
+
+  * Instalar o Plugin do Sqlite com VS > Ctlr + Shift + P > Open SQLite DB
+
+* Beekeeper studio:https://snapcraft.io/install/beekeeper-studio/ubuntu 
+
+----
+
