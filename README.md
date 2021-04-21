@@ -86,3 +86,14 @@ Código:  `embuscadoproximonivel`
 # Aula 3
 
 
+- Criação do Service e tratamento de erro ao criar usuário já existente
+
+## Criação da tabela de usuários
+
+```ssh
+yarn typeorm migration:create -n CreateUsers
+```
+
+```ssh
+yarn typeorm migration:run
+```
