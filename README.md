@@ -52,3 +52,14 @@ Se usa Ubuntu, primeiramente instalar o sqlite `sudo apt install sqlite`
 
 ----
 
+## Criando entidade
+
+* Adicionado lib uuid
+```ssh
+yarn add uuid
+```
+
+* Adicionando tipagens uuid
+```ssh
+yarn add @types/uuid -D
+```
