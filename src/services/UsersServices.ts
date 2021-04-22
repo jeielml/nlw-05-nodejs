@@ -8,18 +8,23 @@ interface IUserCreate {
 
 class UsersServices {
 
+    private usersRepository: UsersRepository
+
+    constructor() {
+        this.usersRepository = getCustomRepository(UsersRepository)
+    }
+
     async create(email: string) {
-        const repository = getCustomRepository(UsersRepository)
      
-        const userExists = await repository.findOne({email,})
+        const userExists = await this.usersRepository.findOne({email,})
 
         if (userExists) {
             return userExists
         }
 
-        const user = repository.create({email})
+        const user = this.usersRepository.create({email})
     
-        await repository.save(user)
+        await this.usersRepository.save(user)
 
         return user
     }
