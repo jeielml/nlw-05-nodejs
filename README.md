@@ -198,3 +198,32 @@ curl --location --request POST 'localhost:3333/messages' \
     "created_at": "2021-04-22T10:46:40.000Z"
 }
 ```
+
+* Listando mensagens
+```ssh
+curl --location --request GET 'localhost:3333/messages/95ed6f2a-8dab-491e-9ab9-15dc918744d5' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "email":"admin@admin.com"
+}'
+```
+
+```json
+[
+    {
+        "id": "af23432e-6700-4a29-a743-abb109e05474",
+        "admin_id": null,
+        "user_id": "95ed6f2a-8dab-491e-9ab9-15dc918744d5",
+        "text": "Minha mensagem",
+        "created_at": "2021-04-22T10:40:33.000Z"
+    },
+    {
+        "id": "9c881d6b-e421-4f11-8ad8-492a09a04be5",
+        "admin_id": "4ebf814f-4510-43ba-a36b-037bb1e596b1",
+        "user_id": "95ed6f2a-8dab-491e-9ab9-15dc918744d5",
+        "text": "Minha mensagem",
+        "created_at": "2021-04-22T10:46:40.000Z"
+    }
+]
+```
+
