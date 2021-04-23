@@ -266,3 +266,16 @@ curl --location --request GET 'localhost:3333/messages/95ed6f2a-8dab-491e-9ab9-1
 ]
 ```
 
+----
+# Aula 4
+
+## Instalando o Socket.io
+
+```ssh
+yarn add socket.io && yarn add @types/socket.io
+``` 
+
+## Baixar front end (pasta public)
+
+Acesse o link do [material complementar da aula 4](https://www.notion.so/Material-para-a-aula-04-66025d3a9c9549388de33c723851855e) e descompacte o arquivo `public.zip`na pasta raiz do projet0 (no meu caso `nlw-05-nodejs$`)
+
