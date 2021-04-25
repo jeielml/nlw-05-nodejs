@@ -41,6 +41,7 @@ class MessagesServices {
             relations: ["user"]
         })
 
+        console.log("userid",user_id, list.length)
         return list
     }
     
