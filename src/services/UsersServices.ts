@@ -28,6 +28,10 @@ class UsersServices {
 
         return user
     }
+
+    async findByEmail(email: string) {
+        return await this.usersRepository.findOne({email,})
+    }
     
 }
 
