@@ -25,10 +25,7 @@ document.querySelector("#start_chat").addEventListener("click", (event) => {
     })
 
     socket.on("client_list_all_messages", (messages) => {
-        console.log("Entrou aqui")
-        console.log(messages.length)
         var template_client = document.getElementById("message-user-template").innerHTML
-        console.log(template_client)
         var template_admin = document.getElementById("admin-template").innerHTML
 
         messages.forEach(message => {
@@ -40,7 +37,11 @@ document.querySelector("#start_chat").addEventListener("click", (event) => {
 
                 document.getElementById("messages").innerHTML += rendered
             } else {
+                const rendered = Mustache.render(template_admin, {
+                    message_admin: message.text,
+                })
 
+                document.getElementById("messages").innerHTML += rendered
             }
             
         });

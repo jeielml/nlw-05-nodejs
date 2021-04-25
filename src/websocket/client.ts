@@ -47,8 +47,6 @@ io.on("connect", (socket) => {
 
         const allMessages = await messagesServices.listByUser(user_id)
 
-        console.log("all messages", allMessages.length)
-
         socket.emit("client_list_all_messages", allMessages)
 
     })
