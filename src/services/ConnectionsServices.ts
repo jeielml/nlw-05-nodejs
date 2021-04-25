@@ -32,14 +32,14 @@ class ConnectionsServices {
         return connection
     }
 
-    // async listByUser(user_id: string) {
-    //     const list = await this.connectionsRepository.find({
-    //         where: {user_id},
-    //         relations: ["user"]
-    //     })
+    async findByUserId (user_id: string) {
+        const connection = await this.connectionsRepository.findOne({
+            where: {user_id},
+            relations: ["user"]
+        })
 
-    //     return list
-    // }
+        return connection
+    }
     
 }
 
