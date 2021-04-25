@@ -297,6 +297,15 @@ yarn add socket.io-client
 http://localhost:3333/pages/client
 
 
+# Criando tabela de conexões
+
+```ssh
+yarn typeorm migration:create -n CreateConnections
+```
+
+```ssh
+yarn typeorm migration:run
+```
 
 -----
 aula 4 34,37 / 1h16
