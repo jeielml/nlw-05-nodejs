@@ -297,7 +297,7 @@ yarn add socket.io-client
 http://localhost:3333/pages/client
 
 
-# Criando tabela de conexões
+## Criando tabela de conexões
 
 ```ssh
 yarn typeorm migration:create -n CreateConnections
