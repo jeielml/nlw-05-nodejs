@@ -1,5 +1,4 @@
 document.querySelector("#start_chat").addEventListener("click", (event) => {
-    // console.log("clicou no botão")
     const socket = io();
 
     const chat_help = document.getElementById("chat_help")
@@ -23,6 +22,28 @@ document.querySelector("#start_chat").addEventListener("click", (event) => {
                 console.log(call)
             }
         })
+    })
+
+    socket.on("client_list_all_messages", (messages) => {
+        console.log("Entrou aqui")
+        console.log(messages.length)
+        var template_client = document.getElementById("message-user-template").innerHTML
+        console.log(template_client)
+        var template_admin = document.getElementById("admin-template").innerHTML
+
+        messages.forEach(message => {
+            if(message.admin_id === null) {
+                const rendered = Mustache.render(template_client, {
+                    message: message.text,
+                    email
+                })
+
+                document.getElementById("messages").innerHTML += rendered
+            } else {
+
+            }
+            
+        });
     })
 
 });

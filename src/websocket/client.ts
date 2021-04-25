@@ -38,13 +38,18 @@ io.on("connect", (socket) => {
                 connection.socket_id = socket_id
                 await connectionsService.create(connection)
             }
-            console.log(connection)
         }
 
         await messagesServices.create({
             text, 
             user_id
         })
+
+        const allMessages = await messagesServices.listByUser(user_id)
+
+        console.log("all messages", allMessages.length)
+
+        socket.emit("client_list_all_messages", allMessages)
 
     })
 })
