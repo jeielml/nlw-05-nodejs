@@ -1,3 +1,4 @@
+import { Socket } from "socket.io";
 import { http, io } from "../http";
 import { ConnectionsServices } from "../services/ConnectionsServices";
 import { MessagesServices } from "../services/MessagesServices";
@@ -48,6 +49,22 @@ io.on("connect", (socket) => {
         const allMessages = await messagesServices.listByUser(user_id)
 
         socket.emit("client_list_all_messages", allMessages)
+    })
 
+    socket.on("client_send_to_admin", async params => {
+        const {text, socket_admin_id } = params
+
+        const socket_id = socket.id
+        const {user_id} =  await connectionsService.findBySocketId(socket_id)
+
+        const message = await messagesServices.create({
+            text,
+            user_id
+        })
+
+        io.to(socket_admin_id).emit("admin_recieve_message", {
+            message,
+            socket_id,
+        })
     })
 })
