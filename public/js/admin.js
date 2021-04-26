@@ -33,6 +33,8 @@ function call(id) {
         user_id: connection.user_id
     }
 
+    socket.emit("admin_user_in_support", params)
+
     socket.emit("admin_list_messages_by_user", params, messages => {
         const divMessages = document.getElementById(
             `allMessages${connection.user_id}`
@@ -88,7 +90,7 @@ function sendMessage(id) {
     text.value = "";
 }
 
-socket.on("admin_receive_message", (data) => {
+socket.on("admin_recieve_message", (data) => {
     console.log(data);
     const connection = connectionsUsers.find(
       (connection) => (connection.socket_id = data.socket_id)
